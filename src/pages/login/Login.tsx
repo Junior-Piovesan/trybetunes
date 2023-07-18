@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
-import { UserType } from '../../types';
+import { UserType, HandleType } from '../../types';
 import Loading from '../../components/Loading/Loading';
 
 const initialState = {
@@ -9,10 +9,6 @@ const initialState = {
   email: '',
   image: '',
   description: '',
-};
-
-type HandleType = {
-  target:{ name:string, value:string }
 };
 
 export default function Login() {
@@ -44,6 +40,7 @@ export default function Login() {
           } }
         >
           <input
+            placeholder="Nome"
             onChange={ handleChange }
             data-testid="login-name-input"
             type="text"

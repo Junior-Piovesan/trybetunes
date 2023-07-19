@@ -1,41 +1,39 @@
-import { SongType } from '../../types';
+import { MusicsType, SongType } from '../../types';
+import full_heart from '../../images/checked_heart.png';
+import empty_heart from '../../images/empty_heart.png';
 
 type PropsType = {
-  album: SongType[]
+  album: SongType[];
 };
 
 export default function MusicsList({ album }:PropsType) {
   return (
+
     <div>
-      <div>
-        {album.map(({ trackId, trackName, previewUrl }) => (
-          <div
-            key={ trackId }
-          >
+      {album.map(({ trackId, trackName, previewUrl }) => (
+        <div
+          key={ trackId }
+        >
+          <div>
             <p>
               {trackName}
             </p>
-            <audio data-testid="audio-component" src={ previewUrl } controls>
-              <track kind="captions" />
-              O seu navegador não suporta o elemento
-              <code>audio</code>
-              .
-            </audio>
+
+            <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackName }>
+              <img src={ empty_heart } alt="favorite" />
+              <input type="checkbox" name={ trackName } id={ trackName } />
+            </label>
+
           </div>
-        ))}
-      </div>
-      {/* {album.map(({ collectionName, artworkUrl100, artistName, artistId }) => (
-        <div key={ artistId }>
-          <img
-            src={ artworkUrl100 }
-            alt={ `Capa do album da banda ${artistName}` }
-          />
-
-          <h2 data-testid="artist-name">{artistName}</h2>
-          <p data-testid="album-name">{collectionName}</p>
+          <audio data-testid="audio-component" src={ previewUrl } controls>
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            <code>audio</code>
+            .
+          </audio>
         </div>
-      )).filter((music, index:number) => index === 0)} */}
-
+      ))}
     </div>
+
   );
 }

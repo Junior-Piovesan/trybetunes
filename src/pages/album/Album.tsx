@@ -1,14 +1,24 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import getMusics from '../../services/musicsAPI';
-import { AlbumType, SongType } from '../../types';
+import { InfoAlbumType, SongType } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import MusicCard from '../../components/musicCard/MusicCard';
 
+const initialAlbumInfo:InfoAlbumType = {
+  collectionName: '',
+  artworkUrl100: '',
+  artistName: '',
+
+};
+
 export default function Album() {
-  const [album, setAlbum] = useState<[AlbumType, ...SongType[]]>({});
-  const [albunInfo, setAlbumInfo] = useState();
+  const [album, setAlbum] = useState<SongType[]>([]);
+
+  const [albumInfo, setAlbumInfo] = useState<InfoAlbumType>(initialAlbumInfo);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const params = useParams<{ id:string }>();
 
   useEffect(() => {
@@ -16,9 +26,10 @@ export default function Album() {
   }, []);
 
   const getListMusics = async () => {
-    const musicsList:[AlbumType, ...SongType[]] = await getMusics(params.id || '');
-    setAlbum(musicsList);
+    const [info, ...musics] = await getMusics(params.id || '');
 
+    setAlbumInfo(info);
+    setAlbum(musics);
     setIsLoading(false);
   };
 
@@ -27,22 +38,18 @@ export default function Album() {
       {isLoading && <Loading />}
       {!isLoading && (
         <section>
+          <div>
 
-          {album
-            .map(({ collectionName, artworkUrl100, artistName, artistId }) => (
-              <div key={ artistId }>
-                <img
-                  src={ artworkUrl100 }
-                  alt={ `Capa do album da banda ${artistName}` }
-                />
+            <img
+              src={ albumInfo.artworkUrl100 }
+              alt={ `Capa do album da banda ${albumInfo.artistName}` }
+            />
 
-                <h2 data-testid="artist-name">{artistName}</h2>
-                <p data-testid="album-name">{collectionName}</p>
-              </div>
-            )).filter((music, index:number) => index < 1)}
+            <h2 data-testid="artist-name">{albumInfo.artistName}</h2>
+            <p data-testid="album-name">{ albumInfo.collectionName}</p>
+          </div>
 
-          <MusicCard album={ album.filter((music, index) => index > 0) } />
-          {/* <MusicCard album={ album } /> */}
+          <MusicCard album={ album } />
         </section>
       )}
     </div>

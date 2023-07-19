@@ -3,6 +3,7 @@ import { AlbumType, HandleType } from '../../types';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading/Loading';
 import AlbunsList from '../../components/albunsList/AlbunsList';
+import Header from '../../components/header/Header';
 
 export default function Search() {
   const [showForm, setShowForm] = useState<boolean>(true);
@@ -36,7 +37,7 @@ export default function Search() {
 
   return (
     <div>
-
+      <Header />
       {isLoading && <Loading />}
 
       {showForm ? (

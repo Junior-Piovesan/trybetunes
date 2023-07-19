@@ -37,7 +37,6 @@ export default function Search() {
 
   return (
     <div>
-      <Header />
       {isLoading && <Loading />}
 
       {showForm ? (

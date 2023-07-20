@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading/Loading';
 import { UserType } from '../../types';
@@ -14,7 +14,6 @@ const initialProfileState:UserType = {
 export default function Profile() {
   const [profile, setProfile] = useState<UserType>(initialProfileState);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
   useEffect(() => {
     getProfile();
   }, []);
@@ -37,7 +36,6 @@ export default function Profile() {
               alt="Imagem do perfil"
             />
             <Link to="/profile/edit">Editar perfil</Link>
-            {/* <button onClick={ () => navigate('/profile/edit') }>Editar perfil</button> */}
           </div>
           <div>
             <p>Nome</p>

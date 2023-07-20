@@ -1,69 +1,96 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SongType } from '../../types';
 import full_heart from '../../images/checked_heart.png';
 import empty_heart from '../../images/empty_heart.png';
+import './musicCard.css';
+import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
+import Loading from '../Loading/Loading';
 
 type PropsType = {
   album: SongType[];
 };
 
-type EventType = {
-  target: { name:string, checked:boolean }
+type ListFavoriteType = {
+  trackId:number,
+  trackName:string,
+  previewUrl:string
 };
 
 export default function MusicsList({ album }:PropsType) {
-  const [favoriteList, setIsfavorite] = useState([]);
+  const [favoriteList, setFavoriteList] = useState<ListFavoriteType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    getFavoritesList();
+  }, []);
+
+  const getFavoritesList = async () => {
+    setIsLoading(true);
+    setFavoriteList(await getFavoriteSongs());
+    setIsLoading(false);
+  };
 
   const isFavorite = (id:number) => {
-    return favoriteList.some((favorite) => favorite === id.toString());
+    return favoriteList.some(({ trackId }) => trackId === id);
   };
 
-  const hancdleChange = ({ target: { name, checked } }:EventType) => {
-    if (!isFavorite(Number(name))) {
-      const favorite = [...favoriteList, name];
-      setIsfavorite(favorite);
+  const hancdleChange = async (trackId:number, trackName:string, previewUrl:string) => {
+    if (!isFavorite(trackId)) {
+      const favorite:ListFavoriteType[] = [...favoriteList,
+        {
+          trackId,
+          trackName,
+          previewUrl,
+        }];
+      setFavoriteList(favorite);
+      await addSong({ trackId, trackName, previewUrl });
     }
-    if (isFavorite(Number(name))) {
-      const favorite = favoriteList.filter((music) => music !== name);
-      setIsfavorite(favorite);
+    if (isFavorite(trackId)) {
+      const favorite = favoriteList.filter((music) => music.trackId !== trackId);
+      setFavoriteList(favorite);
+      await removeSong({ trackId, trackName, previewUrl });
     }
   };
-
   return (
 
     <div>
-      {album.map(({ trackId, trackName, previewUrl }) => (
-        <div
-          key={ trackId }
-        >
-          <div>
-            <p>
-              {trackName}
-            </p>
+      {isLoading ? <Loading /> : (
+        album.map(({ trackId, trackName, previewUrl }) => (
+          <div
+            key={ trackId }
+          >
+            <div>
+              <p>
+                {trackName}
+              </p>
 
-            <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackName }>
-              <img
-                src={ isFavorite(trackId) ? full_heart : empty_heart }
-                alt="favorite"
-              />
-              <input
-                onChange={ hancdleChange }
-                type="checkbox"
-                name={ trackId.toString() }
-                id={ trackName }
-                checked={ isFavorite(trackId) }
-              />
-            </label>
+              <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackName }>
+                <img
+                  src={ isFavorite(trackId) ? full_heart : empty_heart }
+                  alt="favorite"
+                />
+                <input
+                  onChange={ () => {
+                    hancdleChange(trackId, trackName, previewUrl);
+                  } }
+                  type="checkbox"
+                  name={ trackId.toString() }
+                  id={ trackName }
+                  checked={ isFavorite(trackId) }
+                  className="input__favorites"
+                />
+              </label>
 
+            </div>
+            <audio data-testid="audio-component" src={ previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              <code>audio</code>
+              .
+            </audio>
           </div>
-          <audio data-testid="audio-component" src={ previewUrl } controls>
-            <track kind="captions" />
-            O seu navegador não suporta o elemento
-            <code>audio</code>
-            .
-          </audio>
-        </div>
-      ))}
+        ))
+      )}
     </div>
 
   );

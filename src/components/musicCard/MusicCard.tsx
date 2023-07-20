@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { SongType } from '../../types';
 import full_heart from '../../images/checked_heart.png';
 import empty_heart from '../../images/empty_heart.png';
@@ -20,6 +21,9 @@ export default function MusicsList({ album }:PropsType) {
   const [favoriteList, setFavoriteList] = useState<ListFavoriteType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const params = useParams();
+
+  console.log(params);
   useEffect(() => {
     getFavoritesList();
   }, []);
@@ -72,6 +76,7 @@ export default function MusicsList({ album }:PropsType) {
                 <input
                   onChange={ () => {
                     hancdleChange(trackId, trackName, previewUrl);
+                    // handleClick(trackId);
                   } }
                   type="checkbox"
                   name={ trackId.toString() }

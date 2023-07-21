@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Outfit:wght@500&family=Roboto:wght@300&family=Tourney:wght@100&display=swap') ;
+
+.loading-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.loading-text {
+  color: #c0c3c9;
+  font-family: Epilogue , sans-serif;
+  font-size: 48.92px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}

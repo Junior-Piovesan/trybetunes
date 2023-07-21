@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import { UserType, HandleType } from '../../types';
 import Loading from '../../components/Loading/Loading';
+import logo from '../../images/logo.svg';
+import './login.css';
 
 const initialState = {
   name: '',
@@ -29,32 +31,41 @@ export default function Login() {
   };
 
   return (
-    <section>
+    <section className="login_container">
       {isLoading ? <Loading /> : (
-        <form
-          onSubmit={ async (event) => {
-            setIsLoading(true);
-            event.preventDefault();
-            await createUser(userData);
-            navigate('/search');
-          } }
-        >
-          <input
-            placeholder="Nome"
-            onChange={ handleChange }
-            data-testid="login-name-input"
-            type="text"
-            name="name"
-            value={ userData.name }
-            className="login-name"
-          />
-          <button
-            data-testid="login-submit-button"
-            disabled={ disabledButton() }
+        <div className="form-logo-container">
+          <div className="image-box">
+            <img src={ logo } alt="Logotipo" />
+          </div>
+
+          <form
+            className="form"
+            onSubmit={ async (event) => {
+              setIsLoading(true);
+              event.preventDefault();
+              await createUser(userData);
+              navigate('/search');
+            } }
           >
-            Entrar
-          </button>
-        </form>
+            <input
+              placeholder="Qual é seu nome?"
+              onChange={ handleChange }
+              data-testid="login-name-input"
+              type="text"
+              name="name"
+              value={ userData.name }
+              className="input-login"
+            />
+            <button
+              // className={ disabledButton() ? 'btn-disabled' : 'btn-login' }
+              className="btn-login"
+              data-testid="login-submit-button"
+              disabled={ disabledButton() }
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
       )}
     </section>
 

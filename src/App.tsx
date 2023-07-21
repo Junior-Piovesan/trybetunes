@@ -7,11 +7,19 @@ import Layout from './pages/Layout';
 import Favorites from './pages/favorites/Favorites';
 import Profile from './pages/profile/Profile';
 import ProfileEdit from './pages/profileEdit/ProfileEdit';
+import group5 from './images/Group 5.svg';
+import group6 from './images/Group 6.svg';
+import './app.css';
 
 function App() {
   return (
-    <>
-      <p>Trybetunes</p>
+    <div className="app-container">
+
+      {/* <img className="group-5-image" src={ group5 } alt="icone" />
+      <img className="group-6-image" src={ group6 } alt="icone" />
+
+      <div className="small-circle">  </div>
+      <div className="big-circle"> </div> */}
       <Routes>
 
         <Route path="/" element={ <Login /> } />
@@ -28,8 +36,7 @@ function App() {
 
         <Route path="*" element={ <NotFound /> } />
       </Routes>
-
-    </>
+    </div>
   );
 }
 

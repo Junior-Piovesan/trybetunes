@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Outfit:wght@500&family=Roboto:wght@300&family=Tourney:wght@100&display=swap') ;
+
+
+.login_container {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  height: 99vh;
+  justify-content: center;
+}
+
+.form-logo-container {
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 1px 1px 26px 1px rgba(56, 60, 68, 0.19);
+  display: flex;
+  flex-wrap: wrap;
+  height: 60%;
+  justify-content: center;
+  width: 80%;
+}
+
+.image-box {
+  text-align: center;
+  width: 100%;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.input-login, .btn-login {
+  border-radius: 20px;
+  border-style: none;
+  height: 40px;
+  width: 400px;
+}
+
+.input-login {
+  border: 1px solid #003be5;
+  color: #003be5;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  text-align: center;
+}
+
+.btn-login {
+  background-color: #003be5;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn-disabled {
+  background-color: #7d97e4;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Outfit:wght@500&family=Roboto:wght@300&family=Tourney:wght@100&display=swap') ;
+
+.header-box {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.image-box {
+  margin-top: 25px;
+  width: 95%;
+}
+
+.image-logo-header {
+  width: 90%;
+}
+
+.navbar-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.nav-box-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 95%;
+}
+
+.link-nav-bar {
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.link-nav-bar:focus {
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.user-box {
+  align-items: center;
+  display: flex;
+  height: 20%;
+  justify-content: space-around;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 95%;
+}
+
+.image-user {
+  border-radius: 50%;
+  width: 30%;
+}
+
+.name-user {
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  text-align: center;
+  text-transform: capitalize;
+  width: 45%;
+}

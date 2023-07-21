@@ -4,6 +4,7 @@ import getMusics from '../../services/musicsAPI';
 import { InfoAlbumType, SongType } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import MusicCard from '../../components/musicCard/MusicCard';
+import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
 
 const initialAlbumInfo:InfoAlbumType = {
   collectionName: '',
@@ -15,6 +16,8 @@ const initialAlbumInfo:InfoAlbumType = {
 export default function Album() {
   const [album, setAlbum] = useState<SongType[]>([]);
 
+  const [favoriteList, setFavoriteList] = useState<SongType[]>([]);
+
   const [albumInfo, setAlbumInfo] = useState<InfoAlbumType>(initialAlbumInfo);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -22,15 +25,38 @@ export default function Album() {
   const params = useParams<{ id:string }>();
 
   useEffect(() => {
-    getListMusics();
+    getListMusicsFavoriteSongs();
   }, []);
 
-  const getListMusics = async () => {
+  const getListMusicsFavoriteSongs = async () => {
     const [info, ...musics] = await getMusics(params.id || '');
 
     setAlbumInfo(info);
+    setFavoriteList(await getFavoriteSongs());
     setAlbum(musics);
     setIsLoading(false);
+  };
+
+  const isFavorite = (id:number) => {
+    return favoriteList.some(({ trackId }) => trackId === id);
+  };
+
+  const handleChange = async (trackId:number, trackName:string, previewUrl:string) => {
+    if (!isFavorite(trackId)) {
+      const favorite:SongType[] = [...favoriteList,
+        {
+          trackId,
+          trackName,
+          previewUrl,
+        }];
+      setFavoriteList(favorite);
+      await addSong({ trackId, trackName, previewUrl });
+    }
+    if (isFavorite(trackId)) {
+      const favorite = favoriteList.filter((music) => music.trackId !== trackId);
+      setFavoriteList(favorite);
+      await removeSong({ trackId, trackName, previewUrl });
+    }
   };
 
   return (
@@ -49,8 +75,13 @@ export default function Album() {
             <p data-testid="album-name">{ albumInfo.collectionName}</p>
           </div>
 
-          <MusicCard album={ album } />
+          <MusicCard
+            handleChange={ handleChange }
+            album={ album }
+            isFavorite={ isFavorite }
+          />
         </section>
+
       )}
     </div>
   );

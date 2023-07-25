@@ -3,6 +3,7 @@ import MusicCard from '../../components/musicCard/MusicCard';
 import { SongType } from '../../types';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Loading from '../../components/Loading/Loading';
+import './favorites.css';
 
 export default function Favorites() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -32,11 +33,16 @@ export default function Favorites() {
     <div>
 
       {isLoading ? <Loading /> : (
-        <MusicCard
-          handleChange={ handleChange }
-          album={ favoriteList }
-          isFavorite={ isFavorite }
-        />
+        <>
+          <div>
+            <h2>Músicas Favoritas</h2>
+          </div>
+          <MusicCard
+            handleChange={ handleChange }
+            album={ favoriteList }
+            isFavorite={ isFavorite }
+          />
+        </>
       )}
     </div>
 

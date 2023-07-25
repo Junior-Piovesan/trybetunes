@@ -12,41 +12,44 @@ type PropsType = {
 export default function MusicsList({ album, isFavorite, handleChange }:PropsType) {
   return (
 
-    <div>
+    <div className="music-card-container">
 
       { album.map(({ trackId, trackName, previewUrl }) => (
         <div
+          className="music-card"
           key={ trackId }
         >
-          <div>
-            <p>
+          <div className="box-music-name">
+            <p className="music-name">
               {trackName}
             </p>
-
-            <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackName }>
-              <img
-                src={ isFavorite(trackId) ? full_heart : empty_heart }
-                alt="favorite"
-              />
-              <input
-                onChange={ () => {
-                  handleChange(trackId, trackName, previewUrl);
-                } }
-                type="checkbox"
-                name={ trackId.toString() }
-                id={ trackName }
-                checked={ isFavorite(trackId) }
-                className="input__favorites"
-              />
-            </label>
-
           </div>
+
           <audio data-testid="audio-component" src={ previewUrl } controls>
             <track kind="captions" />
             O seu navegador não suporta o elemento
             <code>audio</code>
             .
           </audio>
+
+          <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackName }>
+            <img
+              className="img-heart"
+              src={ isFavorite(trackId) ? full_heart : empty_heart }
+              alt="favorite"
+            />
+            <input
+              onChange={ () => {
+                handleChange(trackId, trackName, previewUrl);
+              } }
+              type="checkbox"
+              name={ trackId.toString() }
+              id={ trackName }
+              checked={ isFavorite(trackId) }
+              className="input__favorites"
+            />
+          </label>
+
         </div>
       ))}
     </div>

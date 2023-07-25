@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Outfit:wght@500&family=Roboto:wght@300&family=Tourney:wght@100&display=swap') ;
 
 .search-container {
-  align-items: center;
-  background: linear-gradient(155deg, #003be5 0%, #00d5e2 100%);
   display: flex;
-  height: 280px;
+  flex-wrap: wrap;
   justify-content: center;
   width: 84.8%;
 }
 
 .form-search-box {
+  align-items: center;
+  background: linear-gradient(155deg, #003be5 0%, #00d5e2 100%);
   display: flex;
-  justify-content: space-evenly;
-  width: 40%;
+  height: 280px;
+  justify-content: center;
+  width: 100%;
 }
 
 .input-search {
@@ -52,6 +53,7 @@
   height: 40px;
   letter-spacing: 0.42px;
   line-height: normal;
+  margin-left: 20px;
   text-transform: uppercase;
   width: 114px;
 }

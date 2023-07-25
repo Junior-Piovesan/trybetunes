@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Outfit:wght@500&family=Roboto:wght@300&family=Tourney:wght@100&display=swap') ;
+
+.albumList-container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.error-box {
+  text-align: center;
+}
+
+.error-icone {
+  height: 69.04px;
+  margin-bottom: 20px;
+  width: 69.04px;
+}
+
+.no-album-title {
+  color: #c0c3c9;
+  font-family: Epilogue , sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}

@@ -41,12 +41,14 @@ export default function Search() {
 
       {showForm ? (
         <form
+          className="form-search-box"
           onSubmit={ (event) => {
             setShowForm(false);
             handleSubmit(event);
           } }
         >
           <input
+            className="input-search"
             onChange={ handleChange }
             name="artistName"
             value={ artistName }
@@ -55,6 +57,7 @@ export default function Search() {
             type="text"
           />
           <button
+            className="btn-search"
             disabled={ !disabledButton() }
             data-testid="search-artist-button"
           >

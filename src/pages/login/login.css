@@ -3,10 +3,12 @@
 
 .login_container {
   align-items: center;
+  background: linear-gradient(155deg, #003be5 0%, #00d5e2 100%);
   border: 1px solid black;
   display: flex;
-  height: 99vh;
+  height: 99.5vh;
   justify-content: center;
+  width: 100%;
 }
 
 .form-logo-container {

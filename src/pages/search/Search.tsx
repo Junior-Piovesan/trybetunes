@@ -44,6 +44,7 @@ export default function Search() {
           handleSubmit(event);
         } }
       >
+
         <input
           className="input-search"
           onChange={ handleChange }

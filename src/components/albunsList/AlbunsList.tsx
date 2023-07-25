@@ -21,25 +21,26 @@ export default function AlbunsList({ listAlbuns, artist }:PropsType) {
       )}
 
       {renderAlbuns() && (
-        <div>
-          <div>
-            <h1>{`Resultado de álbuns de: ${artist}`}</h1>
+        <div className="album-card-container">
+          <div className="title-album-card-box">
+            <h1 className="title-album-card">{`Resultado de álbuns de: ${artist}`}</h1>
           </div>
           {listAlbuns.map((album) => (
             <div
+              className="card-album-box"
               key={ album.collectionId }
             >
               <Link
+                className="link-album"
                 data-testid={ `link-to-album-${album.collectionId}` }
                 to={ `/album/${album.collectionId}` }
               >
-                <div>
-                  <img src={ album.artworkUrl100 } alt="" />
-                </div>
-                <div>
-                  <p>{ album.collectionName }</p>
-                  <p>{ album.artistName }</p>
-                </div>
+
+                <img className="img-album-card" src={ album.artworkUrl100 } alt="" />
+
+                <p className="album-name">{ album.collectionName }</p>
+                <p className="artist-name">{ album.artistName }</p>
+
               </Link>
             </div>
           ))}

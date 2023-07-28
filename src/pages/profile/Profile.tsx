@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading/Loading';
 import { UserType } from '../../types';
+import './profile.css';
 
 const initialProfileState:UserType = {
   name: '',
@@ -25,27 +26,28 @@ export default function Profile() {
   };
 
   return (
-    <section>
+    <section className="profile-container">
       {isLoading ? <Loading /> : (
-        <div>
-
-          <div>
+        <div className="profile-info_box">
+          <div className="header-profile"> </div>
+          <div className="image-profile_box">
             <img
+              className="profile-image"
               data-testid="profile-image"
               src={ profile.image }
               alt="Imagem do perfil"
             />
-            <Link to="/profile/edit">Editar perfil</Link>
           </div>
-          <div>
-            <p>Nome</p>
-            <p>{ profile.name }</p>
+          <div className="profile-infos">
+            <p className="title-info">Nome</p>
+            <p className="info">{ profile.name }</p>
 
-            <p>Email</p>
-            <p>{ profile.email }</p>
+            <p className="title-info">Email</p>
+            <p className="info">{ profile.email }</p>
 
-            <p>Descrição</p>
-            <p>{ profile.description }</p>
+            <p className="title-info">Descrição</p>
+            <p className="info">{ profile.description }</p>
+            <Link className="btn-editar_perfil" to="/profile/edit">Editar perfil</Link>
           </div>
         </div>
 

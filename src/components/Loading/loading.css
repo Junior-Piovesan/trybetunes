@@ -4,15 +4,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  margin: 50px 1px;
   width: 100%;
-}
-
-.loading-text {
-  color: #c0c3c9;
-  font-family: Epilogue , sans-serif;
-  font-size: 48.92px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-align: center;
 }

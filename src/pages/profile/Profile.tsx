@@ -30,14 +30,20 @@ export default function Profile() {
       {isLoading ? <Loading /> : (
         <div className="profile-info_box">
           <div className="header-profile"> </div>
-          <div className="image-profile_box">
-            <img
-              className="profile-image"
-              data-testid="profile-image"
-              src={ profile.image }
-              alt="Imagem do perfil"
-            />
-          </div>
+
+          {profile.image !== '' && (
+            <div className="image-profile_box">
+              <div>
+                <img
+                  className="profile-image"
+                  data-testid="profile-image"
+                  src={ profile.image }
+                  alt="Imagem do perfil"
+                />
+              </div>
+            </div>
+          )}
+
           <div className="profile-infos">
             <p className="title-info">Nome</p>
             <p className="info">{ profile.name }</p>
@@ -50,7 +56,6 @@ export default function Profile() {
             <Link className="btn-editar_perfil" to="/profile/edit">Editar perfil</Link>
           </div>
         </div>
-
       )}
     </section>
   );

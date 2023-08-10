@@ -53,11 +53,13 @@ export default function ProfileEdit() {
     <section className="profile-edit_container">
       <div className="header-profile-edit"> </div>
 
-      <div className="image-container">
-        <div>
-          <img className="profile-img" src={ image } alt="" />
+      {profile.image !== '' && (
+        <div className="image-container">
+          <div>
+            <img className="profile-img" src={ image } alt="Imagem do perfil" />
+          </div>
         </div>
-      </div>
+      )}
 
       {isLoading ? <Loading /> : (
         <form
@@ -151,5 +153,6 @@ export default function ProfileEdit() {
         </form>
       )}
     </section>
+
   );
 }

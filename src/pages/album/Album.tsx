@@ -5,6 +5,7 @@ import { InfoAlbumType, SongType } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import MusicCard from '../../components/musicCard/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
+import './album.css';
 
 const initialAlbumInfo:InfoAlbumType = {
   collectionName: '',
@@ -60,19 +61,35 @@ export default function Album() {
   };
 
   return (
-    <div>
+    <div className="album-box">
       {isLoading && <Loading />}
       {!isLoading && (
         <section>
-          <div>
+          <div className="info-album_box">
 
             <img
+              className="album-image"
               src={ albumInfo.artworkUrl100 }
               alt={ `Capa do album da banda ${albumInfo.artistName}` }
             />
 
-            <h2 data-testid="artist-name">{albumInfo.artistName}</h2>
-            <p data-testid="album-name">{ albumInfo.collectionName}</p>
+            <div className="box-artist-name-album-name">
+              <h2
+                className="artist-name-album"
+                data-testid="artist-name"
+              >
+                {albumInfo.artistName}
+
+              </h2>
+              <p
+                className="album-name-album"
+                data-testid="album-name"
+              >
+                { albumInfo.collectionName}
+
+              </p>
+            </div>
+
           </div>
 
           <MusicCard

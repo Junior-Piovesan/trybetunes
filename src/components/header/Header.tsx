@@ -16,12 +16,13 @@ const initialState = {
   description: '',
 };
 
-export default function Header() {
+export default function Header(img:string) {
   const [profileInfo, setProfileInfo] = useState<UserType>(initialState);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getProfile();
+    console.log('oi');
   }, []);
 
   const getProfile = async () => {

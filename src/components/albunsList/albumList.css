@@ -2,6 +2,7 @@
 
 .albumList-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 }
@@ -46,7 +47,6 @@
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
-  line-height: normal;
   text-align: center;
 }
 
@@ -79,7 +79,6 @@
   color: var(--gray-700, #3d495c);
   font-family: Epilogue , sans-serif;
   font-size: 13px;
-  font-style: normal;
   font-weight: 400;
   line-height: 150%;
   margin-bottom: 10px;
@@ -87,4 +86,22 @@
 
 .link-album {
   text-decoration: none;
+}
+
+@media ( max-width : 790px ) {
+
+  .albumList-container {
+    text-align: center;
+  }
+
+  .card-album-box {
+    height: 250px;
+    margin: 10px;
+    width: 100px;
+  }
+
+  .img-album-card {
+    width: 80%;
+  }
+
 }

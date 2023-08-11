@@ -9,9 +9,10 @@
   justify-content: space-between;
   position: fixed;
   width: 15%;
+  z-index: 3;
 }
 
-.image-box {
+.image-box-header {
   margin-top: 25px;
   width: 95%;
 }
@@ -86,4 +87,50 @@
   text-align: center;
   text-transform: capitalize;
   width: 45%;
+}
+
+@media ( max-width : 790px ) {
+
+  .header-box {
+    flex-flow: wrap;
+    height: 100px;
+    width: 100%;
+  }
+
+  .navbar-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .nav-box-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 30%;
+  }
+
+  .link-nav-bar {
+    margin-top: 5px;
+  }
+
+  .name-user {
+    border-bottom: 1px solid #ccc;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .image-box-header {
+    display: none;
+  }
+}
+
+@media ( min-width : 790px ) and ( max-width : 1000px ) {
+
+  .image-user {
+    display: none;
+  }
 }

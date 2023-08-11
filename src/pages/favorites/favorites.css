@@ -68,3 +68,44 @@
   top: -175px;
   width: 450px;
 }
+
+@media ( min-width : 790px ) and ( max-width : 1000px ) {
+
+  .gp-5-icon-favorites {
+    left: 200px;
+    position: absolute;
+    top: -25px;
+    width: 100px;
+  }
+
+  .gp-6-icon-favorites {
+    bottom: -25px;
+    position: absolute;
+    right: 350px;
+    width: 100px;
+
+  }
+
+  .big-circle-favorites {
+    border: 3px solid #00d5e2;
+    border-radius: 50%;
+    bottom: -680px;
+    height: 815px;
+    left: -480px;
+    position: absolute;
+    width: 815px;
+    z-index: 1;
+  }
+
+  .small-circle-favorites {
+    background: #003eb5;
+    border-radius: 50%;
+    filter: blur(35.5px);
+    height: 450px;
+    position: absolute;
+    right: -300px;
+    top: -175px;
+    width: 450px;
+  }
+
+}

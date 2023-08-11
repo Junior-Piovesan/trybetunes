@@ -101,3 +101,43 @@
   width: 450px;
   z-index: 2;
 }
+
+@media ( min-width : 790px ) and ( max-width : 1000px ) {
+
+  .gp-5-icon-profile {
+    left: 250px;
+    position: absolute;
+    top: 10px;
+    width: 100px;
+  }
+
+  .gp-6-icon-profile {
+    position: absolute;
+    right: 50px;
+    top: -15px;
+    width: 100px;
+  }
+
+  .big-circle-profile {
+    border: 3px solid #00d5e2;
+    border-radius: 50%;
+    bottom: -280px;
+    height: 515px;
+    left: -450px;
+    position: absolute;
+    width: 550px;
+    z-index: 2;
+  }
+
+  .small-circle-profile {
+    background: #003eb5;
+    border-radius: 50%;
+    bottom: -215px;
+    filter: blur(35.5px);
+    height: 350px;
+    left: 48%;
+    position: absolute;
+    width: 350px;
+    z-index: 2;
+  }
+}

@@ -144,3 +144,43 @@ label {
   width: 450px;
   z-index: 2;
 }
+
+@media ( min-width : 790px ) and ( max-width : 1000px ) {
+
+  .gp-5-icon-profile-edit {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    width: 100px;
+  }
+
+  .gp-6-icon-profile-edit {
+    left: 250px;
+    position: absolute;
+    top: -10px;
+    width: 100px;
+  }
+
+  .big-circle-profile-edit {
+    border: 3px solid #00d5e2;
+    border-radius: 50%;
+    height: 415px;
+    left: 400px;
+    position: absolute;
+    top: -250px;
+    width: 415px;
+    z-index: 3;
+  }
+
+  .small-circle-profile-edit {
+    background: #003eb5;
+    border-radius: 50%;
+    filter: blur(35.5px);
+    height: 250px;
+    left: -75px;
+    position: absolute;
+    top: -35px;
+    width: 250px;
+    z-index: 2;
+  }
+}

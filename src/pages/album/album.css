@@ -86,3 +86,94 @@
   width: 450px;
   z-index: 2;
 }
+
+@media ( max-width : 790px ) {
+
+  .album-box {
+    margin-top: 101px;
+  }
+
+  .info-album_box {
+    height: 150px;
+    margin-left: 0.1px;
+    width: 100%;
+  }
+
+  .box-artist-name-album-name {
+    left: 50px;
+    margin-top: 80px;
+  }
+
+  .album-image {
+    left: 10px;
+    top: 100px;
+    width: 30%;
+    z-index: 2;
+  }
+
+  .gp-5-icon-album {
+    right: 10px;
+    top: 10px;
+    width: 50px;
+  }
+
+  .gp-6-icon-album {
+    left: 10px;
+    top: 30px;
+    width: 50px;
+  }
+
+  .big-circle-album {
+    display: none;
+  }
+
+  .small-circle-album {
+    display: none;
+  }
+
+}
+
+@media ( min-width : 790px ) and ( max-width : 1000px ) {
+
+  .album-image {
+    top: calc(100% - 70px);
+    width: 16%;
+  }
+
+  .gp-5-icon-album {
+    position: absolute;
+    right: 350px;
+    top: 10px;
+    width: 100px;
+  }
+
+  .gp-6-icon-album {
+    left: 50px;
+    position: absolute;
+    top: -40px;
+    width: 100px;
+  }
+
+  .big-circle-album {
+    border: 3px solid #00d5e2;
+    border-radius: 50%;
+    bottom: -650px;
+    height: 815px;
+    position: absolute;
+    right: -550px;
+    width: 815px;
+    z-index: 1;
+  }
+
+  .small-circle-album {
+    background: #003eb5;
+    border-radius: 50%;
+    bottom: -245px;
+    filter: blur(35.5px);
+    height: 350px;
+    left: 25%;
+    position: absolute;
+    width: 350px;
+    z-index: 2;
+  }
+}

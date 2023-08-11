@@ -126,6 +126,10 @@
   .image-box-header {
     display: none;
   }
+
+  .image-user {
+    display: none;
+  }
 }
 
 @media ( min-width : 790px ) and ( max-width : 1000px ) {

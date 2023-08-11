@@ -5,7 +5,7 @@
 }
 
 .info-album_box {
-  background: linear-gradient(155deg, #003be5 0%, #00d5e2 100%);
+  background: linear-gradient(155deg, #00d5e2  0%, #003be5 100%);
   display: flex;
   height: 280px;
   margin-bottom: 50px;
@@ -27,6 +27,8 @@
 .box-artist-name-album-name {
   margin-left: 22%;
   margin-top: 190px;
+  position: absolute;
+  z-index: 2;
 }
 
 .artist-name-album {
@@ -42,4 +44,46 @@
   font-family: Epilogue , sans-serif;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.elements-position-absolute {
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.gp-5-icon-album {
+  position: absolute;
+  right: 350px;
+  top: 10px;
+}
+
+.gp-6-icon-album {
+  left: 50px;
+  position: absolute;
+  top: -30%;
+}
+
+.big-circle-album {
+  border: 3px solid #00d5e2;
+  border-radius: 50%;
+  bottom: -650px;
+  height: 815px;
+  position: absolute;
+  right: -400px;
+  width: 815px;
+  z-index: 1;
+}
+
+.small-circle-album {
+  background: #003eb5;
+  border-radius: 50%;
+  bottom: -245px;
+  filter: blur(35.5px);
+  height: 450px;
+  left: 25%;
+  position: absolute;
+  width: 450px;
+  z-index: 2;
 }

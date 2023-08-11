@@ -69,6 +69,28 @@
   width: 450px;
 }
 
+@media ( max-width : 790px ) {
+
+  .favorites-container {
+    margin-left: 0.1px;
+    margin-top: 101px;
+    width: 100%;
+  }
+
+  .title_box {
+    height: 150px;
+    width: 100%;
+  }
+
+  .title-favorites {
+    z-index: 2;
+  }
+
+  .no-favorites-musics {
+    text-align: center;
+  }
+}
+
 @media ( min-width : 790px ) and ( max-width : 1000px ) {
 
   .gp-5-icon-favorites {

@@ -34,7 +34,7 @@ export default function Header(img:string) {
   return (
     <header className="header-box" data-testid="header-component">
 
-      <div className="image-box">
+      <div className="image-box-header">
         <img className="image-logo-header" src={ logo } alt="Logotipo" />
       </div>
 

@@ -37,3 +37,19 @@
 .input__favorites {
   display: none;
 }
+
+@media ( max-width : 790px ) {
+
+  .music-card-container {
+    margin-left: -1px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .music-card {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+}

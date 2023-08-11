@@ -48,7 +48,7 @@ export default function Login() {
         <div className="form-logo-container">
 
           <div className="image-box">
-            <img src={ logo } alt="Logotipo" />
+            <img className="img-logo-login" src={ logo } alt="Logotipo" />
           </div>
 
           <form

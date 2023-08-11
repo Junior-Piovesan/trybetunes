@@ -6,8 +6,10 @@
   background: linear-gradient(155deg, #003be5 0%, #00d5e2 100%);
   border: 1px solid black;
   display: flex;
-  height: 99.5vh;
+  height: 100vh;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
@@ -20,7 +22,8 @@
   flex-wrap: wrap;
   height: 60%;
   justify-content: center;
-  width: 80%;
+  position: absolute;
+  width: 70%;
 }
 
 .image-box {
@@ -52,6 +55,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 15px;
   outline: none;
   text-align: center;
 }
@@ -63,11 +67,8 @@
   cursor: pointer;
   font-family: Epilogue , sans-serif;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   letter-spacing: 0.42px;
-  line-height: normal;
-  text-align: center;
   text-transform: uppercase;
 }
 
@@ -84,5 +85,38 @@
   line-height: normal;
   text-align: center;
   text-transform: uppercase;
+}
+
+.big-circle-login {
+  border: 3px solid #00d5e2;
+  border-radius: 50%;
+  height: 815px;
+  position: absolute;
+  right: calc(100% - 407.5px);
+  top: calc(100% - 407.5px);
+  width: 815px;
+}
+
+.small-circle-login {
+  background: #003eb5;
+  border-radius: 50%;
+  filter: blur(35.5px);
+  height: 450px;
+  left: calc(100% - 500px);
+  position: absolute;
+  top: 30px;
+  width: 450px;
+}
+
+.icon-grupo-5-login {
+  left: 55px;
+  position: absolute;
+  top: 30px;
+}
+
+.icon-grupo-6-login {
+  bottom: 30px;
+  position: absolute;
+  right: 55px;
 }
 

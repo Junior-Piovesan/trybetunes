@@ -6,8 +6,6 @@ import AlbunsList from '../../components/albunsList/AlbunsList';
 import './search.css';
 
 export default function Search() {
-  // const [showForm, setShowForm] = useState<boolean>(true);
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [showListAlbuns, setShowListAlbuns] = useState<boolean>(false);
@@ -28,7 +26,6 @@ export default function Search() {
     setArtistName('');
     const arrayAlbuns:AlbumType[] = await searchAlbumsAPI(artistName);
     setListAlbuns(arrayAlbuns);
-    // setShowForm(true);
     setIsLoading(false);
     setShowListAlbuns(true);
   };
@@ -40,7 +37,6 @@ export default function Search() {
       <form
         className="form-search-box"
         onSubmit={ (event) => {
-          // setShowForm(false);
           handleSubmit(event);
         } }
       >
@@ -63,33 +59,6 @@ export default function Search() {
         </button>
       </form>
       {isLoading && <Loading />}
-
-      {/* {showForm ? (
-        <form
-          className="form-search-box"
-          onSubmit={ (event) => {
-            setShowForm(false);
-            handleSubmit(event);
-          } }
-        >
-          <input
-            className="input-search"
-            onChange={ handleChange }
-            name="artistName"
-            value={ artistName }
-            placeholder="Nome do Artista"
-            data-testid="search-artist-input"
-            type="text"
-          />
-          <button
-            className="btn-search"
-            disabled={ !disabledButton() }
-            data-testid="search-artist-button"
-          >
-            Pesquisar
-          </button>
-        </form>
-      ) : <Loading />} */}
 
       {showListAlbuns && <AlbunsList artist={ artist } listAlbuns={ ListAlbuns } />}
 

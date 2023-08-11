@@ -22,7 +22,6 @@ export default function Header(img:string) {
 
   useEffect(() => {
     getProfile();
-    console.log('oi');
   }, []);
 
   const getProfile = async () => {
@@ -79,11 +78,13 @@ export default function Header(img:string) {
       <div className="user-box">
         {isLoading ? <Loading /> : (
           <>
-            <img
-              className="image-user"
-              src={ profileInfo.image }
-              alt="Imagem do prefil"
-            />
+            {profileInfo.image !== '' && (
+              <img
+                className="image-user"
+                src={ profileInfo.image }
+                alt="Imagem do prefil"
+              />)}
+
             <p className="name-user" data-testid="header-user-name">{profileInfo.name}</p>
           </>
         )}

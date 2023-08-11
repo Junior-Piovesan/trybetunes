@@ -3,6 +3,8 @@ import { AlbumType, HandleType } from '../../types';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading/Loading';
 import AlbunsList from '../../components/albunsList/AlbunsList';
+import gp5 from '../../images/Group 5.svg';
+import gp6 from '../../images/Group 6.svg';
 import './search.css';
 
 export default function Search() {
@@ -40,6 +42,12 @@ export default function Search() {
           handleSubmit(event);
         } }
       >
+        <div className="big-circle-search"> </div>
+
+        <div className="small-circle-search"> </div>
+
+        <img className="gp-5-icon-search" src={ gp5 } alt="grupo 5 icone" />
+        <img className="gp-6-icon-search" src={ gp6 } alt="grupo 6 icone" />
 
         <input
           className="input-search"

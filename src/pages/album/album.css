@@ -47,7 +47,6 @@
 }
 
 .elements-position-absolute {
-  border: 1px solid black;
   overflow: hidden;
   position: relative;
   width: 100%;

@@ -5,6 +5,8 @@ import { UserType, HandleType } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import logo from '../../images/logo.svg';
 import './login.css';
+import gp5 from '../../images/Group 5.svg';
+import gp6 from '../../images/Group 6.svg';
 
 const initialState = {
   name: '',
@@ -32,8 +34,19 @@ export default function Login() {
 
   return (
     <section className="login_container">
+
+      <div className="big-circle-login"> </div>
+
+      <div className="small-circle-login"> </div>
+
+      <img className="icon-grupo-5-login" src={ gp5 } alt="grupo 5 icon" />
+
+      <img className="icon-grupo-6-login" src={ gp6 } alt="grupo 6 icon" />
+
       {isLoading ? <Loading /> : (
+
         <div className="form-logo-container">
+
           <div className="image-box">
             <img src={ logo } alt="Logotipo" />
           </div>

@@ -3,11 +3,11 @@ import { AlbumType, HandleType } from '../../types';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading/Loading';
 import AlbunsList from '../../components/albunsList/AlbunsList';
+import gp5 from '../../images/Group 5.svg';
+import gp6 from '../../images/Group 6.svg';
 import './search.css';
 
 export default function Search() {
-  // const [showForm, setShowForm] = useState<boolean>(true);
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [showListAlbuns, setShowListAlbuns] = useState<boolean>(false);
@@ -28,7 +28,6 @@ export default function Search() {
     setArtistName('');
     const arrayAlbuns:AlbumType[] = await searchAlbumsAPI(artistName);
     setListAlbuns(arrayAlbuns);
-    // setShowForm(true);
     setIsLoading(false);
     setShowListAlbuns(true);
   };
@@ -40,10 +39,15 @@ export default function Search() {
       <form
         className="form-search-box"
         onSubmit={ (event) => {
-          // setShowForm(false);
           handleSubmit(event);
         } }
       >
+        <div className="big-circle-search"> </div>
+
+        <div className="small-circle-search"> </div>
+
+        <img className="gp-5-icon-search" src={ gp5 } alt="grupo 5 icone" />
+        <img className="gp-6-icon-search" src={ gp6 } alt="grupo 6 icone" />
 
         <input
           className="input-search"
@@ -63,33 +67,6 @@ export default function Search() {
         </button>
       </form>
       {isLoading && <Loading />}
-
-      {/* {showForm ? (
-        <form
-          className="form-search-box"
-          onSubmit={ (event) => {
-            setShowForm(false);
-            handleSubmit(event);
-          } }
-        >
-          <input
-            className="input-search"
-            onChange={ handleChange }
-            name="artistName"
-            value={ artistName }
-            placeholder="Nome do Artista"
-            data-testid="search-artist-input"
-            type="text"
-          />
-          <button
-            className="btn-search"
-            disabled={ !disabledButton() }
-            data-testid="search-artist-button"
-          >
-            Pesquisar
-          </button>
-        </form>
-      ) : <Loading />} */}
 
       {showListAlbuns && <AlbunsList artist={ artist } listAlbuns={ ListAlbuns } />}
 

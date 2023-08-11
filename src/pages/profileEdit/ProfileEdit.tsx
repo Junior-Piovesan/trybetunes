@@ -80,7 +80,9 @@ export default function ProfileEdit() {
           onSubmit={ (event) => {
             event.preventDefault();
             handleSubmit();
-            navigate('/profile');
+            setTimeout(() => {
+              navigate('/profile');
+            }, 2500);
           } }
         >
 

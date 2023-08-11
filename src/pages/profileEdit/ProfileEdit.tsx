@@ -4,6 +4,8 @@ import { UserType } from '../../types';
 import { getUser, updateUser } from '../../services/userAPI';
 import Loading from '../../components/Loading/Loading';
 import { validNameImage, validEmailDescrip } from '../../services/validations';
+import gp5 from '../../images/Group 5.svg';
+import gp6 from '../../images/Group 6.svg';
 import './profileEdit.css';
 
 type HandleChangeType = {
@@ -44,6 +46,7 @@ export default function ProfileEdit() {
   const handleSubmit = async () => {
     setIsLoading(true);
     await updateUser(profile);
+
     setIsLoading(false);
   };
 
@@ -51,7 +54,17 @@ export default function ProfileEdit() {
 
   return (
     <section className="profile-edit_container">
-      <div className="header-profile-edit"> </div>
+
+      <div className="header-profile-edit">
+
+        <div className="big-circle-profile-edit"> </div>
+
+        <div className="small-circle-profile-edit"> </div>
+
+        <img className="gp-5-icon-profile-edit" src={ gp5 } alt="grupo 5 icone" />
+        <img className="gp-6-icon-profile-edit" src={ gp6 } alt="grupo 6 icone" />
+
+      </div>
 
       {profile.image !== '' && (
         <div className="image-container">

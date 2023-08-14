@@ -95,19 +95,20 @@
 
   .info-album_box {
     height: 150px;
+    margin-bottom: 110px;
     margin-left: 0.1px;
     width: 100%;
   }
 
   .box-artist-name-album-name {
-    left: 50px;
-    margin-top: 70px;
+    left: 60px;
+    margin-top: 50px;
   }
 
   .album-image {
     left: 10px;
-    top: 100px;
-    width: 30%;
+    top: 90px;
+    width: 25%;
     z-index: 2;
   }
 
